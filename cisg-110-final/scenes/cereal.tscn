@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpx5smvb0irk5"]
+
+[ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_sh104"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sh104"]
+size = Vector2(26, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6khg"]
+atlas = ExtResource("1_sh104")
+region = Rect2(50, 13, 12, 14)
+
+[node name="Cereal" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_sh104")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_v6khg")
