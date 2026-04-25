@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_sh104"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh104"]
-size = Vector2(26, 29)
+size = Vector2(28, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6khg"]
 atlas = ExtResource("1_sh104")
