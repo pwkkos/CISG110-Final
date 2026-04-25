@@ -2,9 +2,13 @@
 
 ## Devlogs
 
-### Week 12Week 13
+### Week 12
 
 One issue I encountered while putting together my game this week was that when I would run my game, the disable kick function would show an error message stating "Invalid assignment of property or key 'process\_node' with value of type 'int' on a base object of type 'Nil'". I didn't know what that meant at first so what I did to found out what was wrong was I rewatched the part of the tutorial that went over everything related to that specific code and retraced all of my steps. After retracing my steps, I found out that when I was dragging the "kickRight" node over to the inspector to assign it to the "kick right" variable, it didn't actually get assigned and was left empty (which I wasn't aware of before). I was able to fix it easily by just manually assigning the node to the variable instead of dragging it, but it was a very easy mistake to overlook.
+
+### Week 13
+
+
 
 ### Week 14
 
