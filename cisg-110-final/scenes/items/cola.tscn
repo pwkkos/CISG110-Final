@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_7m8ha"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tefeu"]
-radius = 7.0
-height = 40.0
+radius = 8.0
+height = 38.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
 atlas = ExtResource("1_7m8ha")

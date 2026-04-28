@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc0x1ckkh4w4h"]
+
+[ext_resource type="Script" uid="uid://cltbbcmy43fni" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://d8ip37hn34im" path="res://sprites/ninjaCat.png" id="2_qhqgy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jyhfs"]
+radius = 20.0
+height = 66.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(15, 22, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(79, 22, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xl0"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(143, 22, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tipki"]
+atlas = ExtResource("2_qhqgy")
+region = Rect2(207, 22, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85g3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbgi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tipki")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tefeu"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_kickRight", "_kickLeft")]
+z_index = 100
+collision_mask = 6
+script = ExtResource("1_g2els")
+SPEED = 350.0
+JUMP_VELOCITY = -500.0
+_kickRight = NodePath("KickRight")
+_kickLeft = NodePath("Kickleft")
+_rightKickDir = Vector2(300, 500)
+_leftKickDir = Vector2(-300, -500)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jyhfs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_85g3d")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -60)
+
+[node name="KickRight" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KickRight"]
+position = Vector2(16, 6)
+shape = SubResource("CircleShape2D_tefeu")
+
+[node name="Kickleft" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kickleft"]
+position = Vector2(-16, 6)
+shape = SubResource("CircleShape2D_tefeu")
+
+[connection signal="body_shape_entered" from="KickRight" to="." method="_on_kick_right_body_shape_entered"]
+[connection signal="body_shape_entered" from="Kickleft" to="." method="_on_kickleft_body_shape_entered"]
