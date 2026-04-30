@@ -1,17 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq5v2wb1tpfgv"]
+[gd_scene load_steps=7 format=3 uid="uid://cq5v2wb1tpfgv"]
 
+[ext_resource type="Script" uid="uid://b1kqypdispyr8" path="res://scripts/props.gd" id="1_jh885"]
 [ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_omtcd"]
+[ext_resource type="PackedScene" uid="uid://rgwrnmsghqsx" path="res://scenes/explosion_vfx.tscn" id="2_df1yr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_oo30y"]
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6xl0"]
-radius = 14.0
+radius = 15.033297
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85g3d"]
 atlas = ExtResource("1_omtcd")
 region = Rect2(85, 15, 12, 10)
 
-[node name="Meat" type="RigidBody2D"]
+[node name="Meat" type="RigidBody2D" node_paths=PackedStringArray("_explosion_VFX")]
 collision_layer = 4
 collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_oo30y")
+script = ExtResource("1_jh885")
+_explosion_VFX = NodePath("explosionVFX")
+
+[node name="explosionVFX" parent="." instance=ExtResource("2_df1yr")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -2)
@@ -21,3 +31,5 @@ shape = SubResource("CircleShape2D_o6xl0")
 position = Vector2(2, -1)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_85g3d")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

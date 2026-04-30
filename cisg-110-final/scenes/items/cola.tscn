@@ -1,18 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://di7df8blwrefr"]
+[gd_scene load_steps=7 format=3 uid="uid://di7df8blwrefr"]
 
+[ext_resource type="Script" uid="uid://b1kqypdispyr8" path="res://scripts/props.gd" id="1_0uxms"]
 [ext_resource type="Texture2D" uid="uid://bj4vvn80427sh" path="res://sprites/item_tileset.png" id="1_7m8ha"]
+[ext_resource type="PackedScene" uid="uid://rgwrnmsghqsx" path="res://scenes/explosion_vfx.tscn" id="2_caiih"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0uxms"]
+bounce = 0.53
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tefeu"]
 radius = 8.0
-height = 38.0
+height = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
 atlas = ExtResource("1_7m8ha")
 region = Rect2(43, 2, 6, 18)
 
-[node name="Cola" type="RigidBody2D"]
+[node name="Cola" type="RigidBody2D" node_paths=PackedStringArray("_explosion_VFX")]
 collision_layer = 4
 collision_mask = 15
+physics_material_override = SubResource("PhysicsMaterial_0uxms")
+script = ExtResource("1_0uxms")
+_explosion_VFX = NodePath("explosionVFX")
+
+[node name="explosionVFX" parent="." instance=ExtResource("2_caiih")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -22,3 +32,5 @@ shape = SubResource("CapsuleShape2D_tefeu")
 position = Vector2(0, -1)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_choun")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cslvj5cind07i"]
+[gd_scene load_steps=17 format=4 uid="uid://cslvj5cind07i"]
 
 [ext_resource type="PackedScene" uid="uid://dc0x1ckkh4w4h" path="res://scenes/player.tscn" id="1_tipki"]
 [ext_resource type="Texture2D" uid="uid://capdrq1nyx0wy" path="res://sprites/environment tilesets/Floor_1_32x32.png" id="2_sugp2"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cq5v2wb1tpfgv" path="res://scenes/meat.tscn" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://di7df8blwrefr" path="res://scenes/items/cola.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://rgwrnmsghqsx" path="res://scenes/explosion_vfx.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cpx5smvb0irk5" path="res://scenes/cereal.tscn" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://bxfk8skgf0y87" path="res://scenes/rat.tscn" id="10_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("2_sugp2")
@@ -1934,13 +1936,14 @@ physics_layer_0/collision_mask = 5
 sources/1 = SubResource("TileSetAtlasSource_o6xl0")
 
 [node name="Main" type="Node2D"]
+position = Vector2(-5, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_tipki")]
-position = Vector2(-3, 3)
+position = Vector2(68, -2)
 
 [node name="Floor" type="TileMapLayer" parent="."]
 z_index = 1
-tile_map_data = PackedByteArray("AAD7/wEAAgABAAEAAAD8/wEAAgABAAEAAAD9/wEAAgABAAEAAAD+/wEAAgABAAEAAAD//wEAAgABAAEAAAAAAAEAAgABAAEAAAABAAEAAgABAAEAAAACAAEAAgABAAEAAAADAAEAAgABAAEAAAAEAAEAAgABAAEAAAAFAAEAAgABAAEAAAAGAAEAAgABAAEAAAAHAAEAAgABAAEAAAAIAAEAAgABAAEAAAAJAAEAAgABAAEAAAAKAAEAAgABAAEAAAALAAEAAgABAAEAAAD6/wEAAgABAAEAAAD5/wEAAgABAAEAAAD4/wEAAgABAAEAAAD1/wEAAgABAAEAAAD2/wEAAgABAAEAAAD3/wEAAgABAAEAAAAMAAEAAgABAAEAAAANAAEAAgABAAEAAAAOAAEAAgABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD7/wEAAgABAAEAAAD8/wEAAgABAAEAAAD9/wEAAgABAAEAAAD+/wEAAgABAAEAAAD//wEAAgABAAEAAAAAAAEAAgABAAEAAAABAAEAAgABAAEAAAACAAEAAgABAAEAAAADAAEAAgABAAEAAAAEAAEAAgABAAEAAAAFAAEAAgABAAEAAAAGAAEAAgABAAEAAAAHAAEAAgABAAEAAAAIAAEAAgABAAEAAAAJAAEAAgABAAEAAAAKAAEAAgABAAEAAAALAAEAAgABAAEAAAD6/wEAAgABAAEAAAD5/wEAAgABAAEAAAD4/wEAAgABAAEAAAD1/wEAAgABAAEAAAD2/wEAAgABAAEAAAD3/wEAAgABAAEAAAAMAAEAAgABAAEAAAANAAEAAgABAAEAAAAOAAEAAgABAAEAAAD1/wIAAgABAAEAAAD2/wIAAgABAAEAAAD3/wIAAgABAAEAAAD4/wIAAgABAAEAAAD5/wIAAgABAAEAAAD6/wIAAgABAAEAAAD7/wIAAgABAAEAAAD8/wIAAgABAAEAAAD9/wIAAgABAAEAAAD+/wIAAgABAAEAAAD//wIAAgABAAEAAAAAAAIAAgABAAEAAAABAAIAAgABAAEAAAACAAIAAgABAAEAAAADAAIAAgABAAEAAAAEAAIAAgABAAEAAAAFAAIAAgABAAEAAAAGAAIAAgABAAEAAAAHAAIAAgABAAEAAAAIAAIAAgABAAEAAAAJAAIAAgABAAEAAAAKAAIAAgABAAEAAAALAAIAAgABAAEAAAAMAAIAAgABAAEAAAANAAIAAgABAAEAAAAOAAIAAgABAAEAAAD1/wMAAgABAAEAAAD2/wMAAgABAAEAAAD3/wMAAgABAAEAAAD4/wMAAgABAAEAAAD5/wMAAgABAAEAAAD6/wMAAgABAAEAAAD7/wMAAgABAAEAAAD8/wMAAgABAAEAAAD9/wMAAgABAAEAAAD+/wMAAgABAAEAAAD//wMAAgABAAEAAAAAAAMAAgABAAEAAAABAAMAAgABAAEAAAACAAMAAgABAAEAAAADAAMAAgABAAEAAAAEAAMAAgABAAEAAAAFAAMAAgABAAEAAAAGAAMAAgABAAEAAAAHAAMAAgABAAEAAAAIAAMAAgABAAEAAAAJAAMAAgABAAEAAAAKAAMAAgABAAEAAAALAAMAAgABAAEAAAAMAAMAAgABAAEAAAANAAMAAgABAAEAAAAOAAMAAgABAAEAAAA=")
 tile_set = SubResource("TileSet_ya4ey")
 
 [node name="Walls" type="TileMapLayer" parent="."]
@@ -1950,14 +1953,8 @@ tile_set = SubResource("TileSet_o6xl0")
 [node name="Platforms" type="TileMapLayer" parent="."]
 z_index = 2
 position = Vector2(-191, -28)
-tile_map_data = PackedByteArray("AAAGAP//AQAGAAEAAAAHAP//AQAGAAEAAAAIAP//AQAGAAEAAAAJAP//AQAGAAEAAAANAPz/AQAGAA0AAAAOAPz/AQAGAA0AAAAPAPz/AQAGAA0AAAAQAPz/AQAGAA0AAAAAAPz/AQAGAA0AAAABAPz/AQAGAA0AAAACAPz/AQAGAA0AAAD///z/AQAGAA0AAAAGAPj/AQAGAA0AAAAHAPj/AQAGAA0AAAAIAPj/AQAGAA0AAAAJAPj/AQAGAA0AAAAGAPL/AQAGAA0AAAAHAPL/AQAGAA0AAAAIAPL/AQAGAA0AAAAJAPL/AQAGAA0AAAAMAOz/AQAGAA0AAAANAOz/AQAGAA0AAAAOAOz/AQAGAA0AAAACAOz/AQAGAA0AAAADAOz/AQAGAA0AAAABAOz/AQAGAA0AAAAHAO7/AQAGAA0AAAAIAO7/AQAGAA0AAAABAPX/AQAGAA0AAAACAPX/AQAGAA0AAAANAPX/AQAGAA0AAAAOAPX/AQAGAA0AAAAFAOj/AQAGAA0AAAAIAOX/AQAGAA0AAAALAOj/AQAGAA0AAAA=")
+tile_map_data = PackedByteArray("AAAGAP//AQAGAAEAAAAHAP//AQAGAAEAAAAIAP//AQAGAAEAAAAJAP//AQAGAAEAAAANAPz/AQAGAA0AAAAOAPz/AQAGAA0AAAAPAPz/AQAGAA0AAAAQAPz/AQAGAA0AAAAAAPz/AQAGAA0AAAABAPz/AQAGAA0AAAACAPz/AQAGAA0AAAD///z/AQAGAA0AAAAGAPj/AQAGAA0AAAAHAPj/AQAGAA0AAAAIAPj/AQAGAA0AAAAJAPj/AQAGAA0AAAAGAPL/AQAGAA0AAAAHAPL/AQAGAA0AAAAIAPL/AQAGAA0AAAAJAPL/AQAGAA0AAAAHAO7/AQAGAA0AAAAIAO7/AQAGAA0AAAABAPX/AQAGAA0AAAACAPX/AQAGAA0AAAANAPX/AQAGAA0AAAAOAPX/AQAGAA0AAAABAOz/AQAGAA0AAAACAOz/AQAGAA0AAAAAAOz/AQAGAA0AAAANAOz/AQAGAA0AAAAOAOz/AQAGAA0AAAAPAOz/AQAGAA0AAAAEAOj/AQAGAA0AAAALAOj/AQAGAA0AAAAHAOX/AQAGAA0AAAAIAOX/AQAGAA0AAAA=")
 tile_set = SubResource("TileSet_tipki")
-
-[node name="Teddy" parent="." instance=ExtResource("6_tipki")]
-position = Vector2(61, -298)
-
-[node name="Meat" parent="." instance=ExtResource("7_85g3d")]
-position = Vector2(-163, -166)
 
 [node name="Cola" type="Node" parent="."]
 
@@ -1968,22 +1965,38 @@ position = Vector2(291, -172)
 position = Vector2(291, -208)
 
 [node name="Cola3" parent="Cola" instance=ExtResource("7_o6xl0")]
-position = Vector2(229, -687)
+position = Vector2(61, -623)
 
 [node name="Cola4" parent="Cola" instance=ExtResource("7_o6xl0")]
-position = Vector2(63, -493)
-
-[node name="Meat2" parent="." instance=ExtResource("7_85g3d")]
-position = Vector2(81, -901)
-
-[node name="Meat3" parent="." instance=ExtResource("7_85g3d")]
-position = Vector2(256, -391)
-
-[node name="Teddy2" parent="." instance=ExtResource("6_tipki")]
-position = Vector2(-114, -683)
-
-[node name="Teddy3" parent="." instance=ExtResource("6_tipki")]
-position = Vector2(257, -682)
+position = Vector2(254, -686)
 
 [node name="explosionVFX" parent="." instance=ExtResource("9_85g3d")]
-position = Vector2(122, 4)
+position = Vector2(122, 1)
+
+[node name="Meat" type="Node" parent="."]
+
+[node name="Meat3" parent="Meat" instance=ExtResource("7_85g3d")]
+position = Vector2(256, -391)
+
+[node name="Meat2" parent="Meat" instance=ExtResource("7_85g3d")]
+position = Vector2(61, -903)
+
+[node name="Meat" parent="Meat" instance=ExtResource("7_85g3d")]
+position = Vector2(-163, -166)
+
+[node name="Teddy" type="Node" parent="."]
+
+[node name="Teddy2" parent="Teddy" instance=ExtResource("6_tipki")]
+position = Vector2(-138, -683)
+
+[node name="Teddy" parent="Teddy" instance=ExtResource("6_tipki")]
+position = Vector2(61, -298)
+
+[node name="Teddy3" parent="Teddy" instance=ExtResource("6_tipki")]
+position = Vector2(288, -682)
+
+[node name="Cereal" parent="." instance=ExtResource("9_choun")]
+position = Vector2(-127, -396)
+
+[node name="Rat" parent="." instance=ExtResource("10_choun")]
+position = Vector2(-5, -1)
