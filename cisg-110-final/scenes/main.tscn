@@ -1999,4 +1999,4 @@ position = Vector2(288, -682)
 position = Vector2(-127, -396)
 
 [node name="Rat" parent="." instance=ExtResource("10_choun")]
-position = Vector2(-5, -1)
+position = Vector2(-25, 15)
