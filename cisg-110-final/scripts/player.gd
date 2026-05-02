@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		
 	if kick_timer > 0:
 		kick_timer -= delta
-	if kick_timer <= 0:
+	elif kick_timer <= 0:
 		_disableKick()
 		
 

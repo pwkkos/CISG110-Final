@@ -1999,4 +1999,13 @@ position = Vector2(288, -682)
 position = Vector2(-127, -396)
 
 [node name="Rat" parent="." instance=ExtResource("10_choun")]
-position = Vector2(-25, 15)
+position = Vector2(-151, 16)
+
+[node name="Rat2" parent="." instance=ExtResource("10_choun")]
+position = Vector2(280, 15)
+_speed = 20.0
+move_right = true
+
+[node name="Rat3" parent="." instance=ExtResource("10_choun")]
+position = Vector2(-302, 13)
+_speed = 200.0

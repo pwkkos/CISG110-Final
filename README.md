@@ -8,7 +8,7 @@ One issue I encountered while putting together my game this week was that when I
 
 ### Week 13
 
-
+An issue I encountered this week was an error message stating, "Invalid assignment of property or key 'emmitting' with the value type 'bool' on a base object of type 'CPUParticles2D' after i kicked a prop. What I did to find the issue was I look over the written code from the tutorial and compared it to mine to check for any differences. I found out that the issue with my code was just that i spelt "emitting" incorrectly; I spelled it as "emmitting" with two m's instead of one, which was an easy fix but really shows just how important it is to know how to spell when coding.
 
 ### Week 14
 
