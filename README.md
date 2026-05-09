@@ -12,7 +12,7 @@ An issue I encountered this week was an error message stating, "Invalid assignme
 
 ### Week 14
 
-Put your Week 14 Devlog answer here.
+An issue I encountered this week was that my kicking animation wouldn't play whenever I pressed space/enter. I figured that it was likely because I wasn't putting my code for playing the animation in the correct spot so what I did was I asked my brother (who knows how to code) to help me figure out what to change, which is kind of cheating...but it was late and i just wanted to have my homework done fast and I was able to resolve the issue by placing the code for playing the animation as a part of the if statement with the other \_anims.play so that the kick anims was the if statement, the idle anims was the elif, and the walk anims was the else. After that change, I was able to get the animation to play normally.
 
 ### Week 15
 

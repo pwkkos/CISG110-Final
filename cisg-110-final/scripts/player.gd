@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-
+@onready var _anims = get_node("AnimatedSprite2D")
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0
 
@@ -18,7 +18,7 @@ var kick_timer: float = 0.0
 @export var _leftKickDir: Vector2 = Vector2.LEFT
 
 var _facingRight: bool = true
-
+var points: int = 0
 
 func _enter_tree() -> void:
 	_disableKick()
@@ -42,8 +42,10 @@ func _physics_process(delta: float) -> void:
 
 	if direction > 0:
 		_facingRight = true
+		_anims.flip_h = false
 	elif direction < 0:
 		_facingRight = false
+		_anims.flip_h = true
 		
 	if kick_timer > 0:
 		kick_timer -= delta
@@ -58,6 +60,13 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_accept"):
 		_kick()
+	
+	if kick_timer > 0:
+		_anims.play("kick")
+	elif velocity.x == 0 && velocity.y == 0:
+		_anims.play("idle")
+	else:
+		_anims.play("walk")
 
 	move_and_slide()
 
@@ -80,6 +89,8 @@ func _on_kick_right_body_shape_entered(body_rid: RID, body: Node2D, body_shape_i
 
 	if body is Prop:
 		body._was_kicked = true
+		points += 1
+		%PointsLabel.text = str(points)
 
 func _on_kickleft_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	print("kick left")
@@ -88,3 +99,5 @@ func _on_kickleft_body_shape_entered(body_rid: RID, body: Node2D, body_shape_ind
 
 	if body is Prop:
 		body._was_kicked = true
+		points += 1
+		%PointsLabel.text = str(points)
