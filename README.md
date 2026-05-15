@@ -16,12 +16,12 @@ An issue I encountered this week was that my kicking animation wouldn't play whe
 
 ### Week 15
 
-Put your Week 15 Devlog answer here.
+Although I do find game development very enjoyable, I don't think I see myself pursuing it in the future as it is not something I'm entirely passionate about (however I will still probably continue game design as a hobby). In the future, I plan to pursue a career in engineering or anything math related since it is one of my favorite and strongest subjects as of now. My plan on reaching this goal is continuing to take more rigorous classes and dual enrollment courses during my high school years and participating in activites that can help to strengthen any skills, ensuring that I am fully prepared for the future. This class really helped me experience how a fully asynchronous course is like and I felt like I was able to manage my time fairly well. I tried to keep a consistant schedule of when to finish my assignments so I never felt overwhelmed with this class and my other classes' work, allowing me to maintain a good balance of work and free time throughout the entire school year. I hope that my free time driven motivation and the need to keep a scheduled routine will continue to help me become successful both now and in the future. 
 
 ## Open-Source Assets
 
 * [Ninja cat sprites](https://opengameart.org/content/cat-fighter-sprite-sheet)
 * [Item sprites](https://ipixl.itch.io/pixel-art-items-part-1)
 * [Interior tilesets](https://rcpstd.itch.io/interior-tileset-asset-pack-16x16)
-* \[Rat sprites](https://carysaurus.itch.io/rat-sprites)  
+* \[Rat sprites](https://carysaurus.itch.io/rat-sprites)
 
